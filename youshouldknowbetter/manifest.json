@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "You should know better",
+    "version": "0.1",
+    "description": "Chrome Extension to help you stay away from sites you shouldn't read",
+    "options_page": "options.html",
+    "background" : {
+    "scripts": ["background.js"]
+  },
+    "content_scripts" : [
+    {
+      "matches" : [
+        "*://*/*"
+      ],
+      "js" : ["contentscript.js"],
+      "css": ["overlay.css"],
+      "run_at" : "document_end",
+      "all_frames" : false
+    }
+  ],
+    "permissions": [
+        "storage",
+        "activeTab"
+        ]
+}
