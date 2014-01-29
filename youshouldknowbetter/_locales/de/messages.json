@@ -1,0 +1,49 @@
+{
+    "extName":{
+        "message": "You should know better",
+        "description": "Extensionsname"
+    },
+    "extDesc":{
+        "message": "Chrome Erweiterung, die hilft, von Seiten fernzubleiben, die man eh nicht mehr lesen will.",
+        "description": "Erweiterungsbeschreibung"
+    },
+    "browserActionTitle":{
+        "message": "You should know better Einstellungen",
+        "description": "Titel des Erweiterungsknopfes"
+    },
+    "optionsHeading":{
+        "message": "You should know better Einstellungsseite",
+        "description": "Überschrift für die Einstellungsseite"
+    },
+    "optionsPagesHeading":{
+        "message": "Betroffene Seiten",
+        "description": "Fette Zwischenüberschrift der Einstellungsseite"
+    },
+    "optionsURLexplanation":{
+        "message": "Pro Zeile eine URL hinzufügen, die dann in Zukunft eine Warnung ausgibt. (z.B. 'example.org' oder 'example.org/unterseite'",
+        "description": "Erläuterung über dem URL Feld"
+    },
+    "optionsButtonSave":{
+        "message":"Speichern",
+        "description":"Beschriftung des Speichern Knopfes"
+    },
+    "overlayHeading":{
+        "message":"You should know better!",
+        "description":"Überschrift des Overlays" 
+    },
+    "overlayQuestion":{
+        "message":"Willst Du wirklich Inhalte von $url$ lesen?",
+        "description":"Bestätigungsfrage zum Ausblenden des Overlays",
+        "placeholders": {
+            "url":{
+                "content":"$1",
+                "example":"http://example.org"
+            }
+        }
+    },
+    "overlayConfirmationButton":{
+        "message":"Ja",
+        "description":"Beschriftung des Ausblendeknopfes"
+    }
+
+}
