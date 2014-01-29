@@ -1,0 +1,43 @@
+{
+    "extName":{
+        "message": "You should know better",
+        "description": "Extension name"
+    },
+    "extDesc":{
+        "message": "Chrome Extension to help you stay away from sites you shouldn't read",
+        "description": "Extension description"
+    },
+    "browserActionTitle":{
+        "message": "You should know better options",
+        "description": "Extension browser button title"
+    },
+    "optionsHeading":{
+        "message": "You should know better Options Page",
+        "description": "Heading for the options page"
+    },
+    "optionsPagesHeading":{
+        "message": "Affected sites",
+        "description": "Bolded Heading on top of the URL list"
+    },
+    "optionsURLexplanation":{
+        "message": "(Enter urls to pop up a warning into the textfield below, one url per line)",
+        "description": "Explaining text above the URL field"
+    },
+    "optionsButtonSave":{
+        "message":"Save",
+        "description":"Save Options Button Text"
+    },
+    "overlayHeading":{
+        "message":"You should know better!",
+        "description":"Overlay Heading Text" 
+    },
+    "overlayQuestion":{
+        "message":"Do you really want to read content from",
+        "description":"Question for the user to confirm disabling the overlay"
+    },
+    "overlayConfirmationButton":{
+        "message":"Yes",
+        "description":"Button text to hide overlay"
+    }
+
+}

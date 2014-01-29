@@ -24,7 +24,10 @@ function show_overlay(url) {
    var overlay = document.createElement("div");
    overlay.setAttribute("class","overlay");
    overlay.setAttribute("id","youshouldknowbetteroverlay");
-   overlay.innerHTML = "You should know better!<br/>Do you really want to read content from<br>"+url+"?<br>";
-   overlay.innerHTML += "<b><a href=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">Yes</a></b>";
+   overlay.innerHTML = chrome.i18n.getMessage("overlayHeading");
+   overlay.innerHTML += "<br/>";
+   overlay.innerHTML += chrome.i18n.getMessage("overlayQuestion");
+   overlay.innerHTML += "<br/>"+url+"?<br/>";
+   overlay.innerHTML += "<b><a href=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</a></b>";
    document.body.appendChild(overlay);
 }

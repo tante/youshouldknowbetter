@@ -1,3 +1,7 @@
+// load strings
+var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave"];
+loadStrings(strings);
+
 // Saves options to localStorage.
 function save_options() {
   var select = document.getElementById("urls");
@@ -27,4 +31,4 @@ function fill_textarea(urls){
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.querySelector('#save').addEventListener('click', save_options);
+document.querySelector('#optionsButtonSave').addEventListener('click', save_options);
