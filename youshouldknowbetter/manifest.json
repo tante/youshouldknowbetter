@@ -19,7 +19,7 @@
       ],
       "js" : ["contentscript.js"],
       "css": ["overlay.css"],
-      "run_at" : "document_end",
+      "run_at" : "document_idle",
       "all_frames" : false
     }
   ],
