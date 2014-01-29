@@ -1,12 +1,17 @@
 {
     "manifest_version": 2,
     "name": "You should know better",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Chrome Extension to help you stay away from sites you shouldn't read",
     "options_page": "options.html",
     "background" : {
     "scripts": ["background.js"]
   },
+    "browser_action": {
+       "default_icon":"images/icon.png",
+       "default_title":"You should know better!",
+       "default_popup":"options.html"
+    },
     "content_scripts" : [
     {
       "matches" : [
