@@ -26,8 +26,8 @@ function show_overlay(url) {
    overlay.setAttribute("id","youshouldknowbetteroverlay");
    overlay.innerHTML = chrome.i18n.getMessage("overlayHeading");
    overlay.innerHTML += "<br/>";
-   overlay.innerHTML += chrome.i18n.getMessage("overlayQuestion");
-   overlay.innerHTML += "<br/>"+url+"?<br/>";
+   overlay.innerHTML += chrome.i18n.getMessage("overlayQuestion",url);
+   overlay.innerHTML += "<br/>";
    overlay.innerHTML += "<b><a href=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</a></b>";
    document.body.appendChild(overlay);
 }

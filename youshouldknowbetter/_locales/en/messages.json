@@ -32,8 +32,15 @@
         "description":"Overlay Heading Text" 
     },
     "overlayQuestion":{
-        "message":"Do you really want to read content from",
-        "description":"Question for the user to confirm disabling the overlay"
+        "message":"Do you really want to read content from $url$?",
+        "description":"Question for the user to confirm disabling the overlay",
+        "placeholders": {
+            "url":{
+                "content":"$1",
+                "example":"http://example.org"
+            }
+        }
+
     },
     "overlayConfirmationButton":{
         "message":"Yes",
