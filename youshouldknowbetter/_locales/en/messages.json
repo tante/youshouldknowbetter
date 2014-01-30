@@ -27,6 +27,10 @@
         "message":"Save",
         "description":"Save Options Button Text"
     },
+    "optionsSaved":{
+        "message":"Options saved",
+        "description":"Confirmation of saved options"
+    },
     "overlayHeading":{
         "message":"You should know better!",
         "description":"Overlay Heading Text" 
