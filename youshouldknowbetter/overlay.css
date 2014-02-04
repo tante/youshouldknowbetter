@@ -7,14 +7,36 @@
   z-index: 20000;
   background-color: rgba(240,0,0,0.9); /*dim the background*/
   color: white;
-  font-size: 5em;
+  font-size: 4em;
   text-align: center;
-  padding: 20px;
-  padding-top: 100px;
+  padding-top: 80px;
   line-height: 100%;
+  font-family: sans-serif, sans;
 }
 
 .overlay a{
   color: white;
   font-weight: bold;
 }
+
+#youshouldknowbetteroverlay .yskboverlayheader{
+    font-weight: bold;
+    font-size: 1.6em;
+    padding-bottom: 20px;
+}
+#youshouldknowbetteroverlay .yskboverlayquestion{
+    
+}
+
+#youshouldknowbetteroverlay .yskboverlaycommentHeader{
+    font-weight: bold;
+    font-size:0.3em;
+}
+#youshouldknowbetteroverlay .yskboverlaycommentText{
+    font-size:0.3em;
+    font-style: italic;
+}
+#youshouldknowbetteroverlay .yskboverlaycommentPostQuestion{
+    font-size: 0.5em;
+}
+

@@ -44,11 +44,31 @@
                 "example":"http://example.org"
             }
         }
-
+    },
+    "overlayCommentHeader":{
+        "message":"Your comment was",
+        "description":"Introduction for displaying the user's comment"
+    },
+    "overlayCommentPostQuestion":{
+        "message":"Still intending to go on?",
+        "description":"Optional Question in case there is a comment."
     },
     "overlayConfirmationButton":{
         "message":"Yes",
         "description":"Button text to hide overlay"
+    },
+    "tableHeadingURL":{
+        "message":"URL pattern",
+        "description":"Table Row header for the URL field"
+    },
+    "tableHeadingName":{
+        "message":"name (optional)",
+        "description":"Table row header for the optional URL pattern name"
+    },
+    "tableHeadingComment":{
+        "message":"comment (optional)",
+        "description":"Table row header for the optional URL pattern comment"
     }
+
 
 }

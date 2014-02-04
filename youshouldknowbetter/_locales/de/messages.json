@@ -48,6 +48,17 @@
     "overlayConfirmationButton":{
         "message":"Ja",
         "description":"Beschriftung des Ausblendeknopfes"
+    },
+    "tableHeadingURL":{
+        "message":"URL Muster",
+        "description":"Spaltenkopfzeile der URL Muster"
+    },
+    "tableHeadingName":{
+        "message":"Name (optional)",
+        "description":"Spaltenkopfzeile für die Namensspalte der URL Muster"
+    },
+    "tableHeadingComment":{
+        "message":"Kommentar (optional)",
+        "description":"Spaltenkopfzeile für die Kommentarspalte der URL Muster"
     }
-
 }

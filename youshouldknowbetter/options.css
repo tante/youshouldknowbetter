@@ -1,0 +1,26 @@
+body{
+    margin:20px; 
+    font-family:sans-serif;
+}
+
+table {
+    border: 1px solid #000;
+    border-spacing: 0px;
+}
+
+tr{
+    border: 1px solid #999;
+}
+
+tr.colored {
+    background:#ECF1EF;
+}
+
+th {
+    text-align: left;
+    background: #C1CDCD;
+}
+
+#urlsTable {
+    width: 75%;
+}
