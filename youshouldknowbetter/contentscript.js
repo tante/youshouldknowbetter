@@ -33,6 +33,6 @@ function show_overlay(url) {
     if(url.comment){
         overlay.innerHTML += '<div class="yskboverlaycommentHeader">'+chrome.i18n.getMessage("overlayCommentHeader")+':</div>'+'<div class="yskboverlaycommentText">'+url.comment+'</div><div class="yskboverlaycommentPostQuestion">'+chrome.i18n.getMessage("overlayCommentPostQuestion")+'</div>';
     }
-    overlay.innerHTML += "<b><a href=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</a></b>";
+    overlay.innerHTML += "<button onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
     document.body.appendChild(overlay);
 }

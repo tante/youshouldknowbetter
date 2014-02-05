@@ -1,22 +1,33 @@
 .overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 20000;
-  background-color: rgba(240,0,0,0.9); /*dim the background*/
-  color: white;
-  font-size: 4em;
-  text-align: center;
-  padding-top: 80px;
-  line-height: 100%;
-  font-family: sans-serif, sans;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    background-color: rgba(240,0,0,0.9); /*dim the background*/
+    color: white;
+    font-size: 4em;
+    text-align: center;
+    padding-top: 80px;
+    line-height: 100%;
+    font-family: sans-serif, sans;
+}
+
+.overlay button{
+    font-size: 22px;
+    padding: 2px 6px 3px;
+    border: 2px outset buttonface;
+/*    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;*/
 }
 
 .overlay a{
-  color: white;
-  font-weight: bold;
+    color: white;
+    font-weight: bold;
 }
 
 #youshouldknowbetteroverlay .yskboverlayheader{
@@ -25,18 +36,19 @@
     padding-bottom: 20px;
 }
 #youshouldknowbetteroverlay .yskboverlayquestion{
-    
+    font-size:28px; 
 }
 
 #youshouldknowbetteroverlay .yskboverlaycommentHeader{
     font-weight: bold;
-    font-size:0.3em;
+    font-size:16px;
 }
 #youshouldknowbetteroverlay .yskboverlaycommentText{
-    font-size:0.3em;
+    font-size:18px;
     font-style: italic;
+    margin-top: -30px;
 }
 #youshouldknowbetteroverlay .yskboverlaycommentPostQuestion{
-    font-size: 0.5em;
+    font-size: 28px;
 }
 
