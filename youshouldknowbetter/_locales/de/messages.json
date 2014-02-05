@@ -20,12 +20,16 @@
         "description": "Fette Zwischenüberschrift der Einstellungsseite"
     },
     "optionsURLexplanation":{
-        "message": "Pro Zeile eine URL hinzufügen, die dann in Zukunft eine Warnung ausgibt. (z.B. 'example.org' oder 'example.org/unterseite'",
+        "message": "Das zu filternde URL Muster kommt in die erste Spalte (z.B. example.org oder example.org/unterseite). Optional können ein eingängigerer Name (z.B. Horst's blog) in der zweiten Spalte sowie ein erklärender Kommentar in der dritten Spalte hinzugefügt werden. Der Kommentar wird als Warnung angezeigt. Zum Löschen einer ZEile einfach deren erste Spalte leeren, die Zeile wird dann beim Speichern entfernt.",
         "description": "Erläuterung über dem URL Feld"
     },
     "optionsButtonSave":{
         "message":"Speichern",
         "description":"Beschriftung des Speichern Knopfes"
+    },
+    "optionsButtonAddRow":{
+        "message":"Neuen Eintrag hinzufügen",
+        "description":"Beschriftung des Knopfes für einen neuen Eintrag"
     },
     "optionsSaved":{
         "message":"Seitenliste aktualisiert",
@@ -44,6 +48,14 @@
                 "example":"http://example.org"
             }
         }
+    },
+    "overlayCommentHeader":{
+        "message":"Dein Kommentar war",
+        "description":"Einleitung zum Nutzerkommentar"
+    },
+    "overlayCommentPostQuestion":{
+        "message":"Immer noch weitermachen?",
+        "description":"Abschließende Frage falls ein Kommentar gezeigt wurde."
     },
     "overlayConfirmationButton":{
         "message":"Ja",
