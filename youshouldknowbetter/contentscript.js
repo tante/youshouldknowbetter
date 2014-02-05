@@ -3,7 +3,13 @@ chrome.storage.sync.get("youshouldknowbetter",checkforblocks);
 function checkforblocks(response) {
     blockedurls = response['youshouldknowbetter'];
     for (var i=0; i<blockedurls.length; i++){
-        var pattern = RegExp(blockedurls[i].url,"i");
+        // migration for older data format
+        if (blockedurls[i].urls){
+            var pattern = RegExp(blockedurls[i].url,"i");
+        }
+        else{
+            var pattern = RegExp(blockedurls[i],"i");
+        }
         if(pattern.test(window.location.href)){
             /* check if the referrer is from this domain. 
              * if not show the overlay */
