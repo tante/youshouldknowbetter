@@ -4,7 +4,7 @@ function checkforblocks(response) {
     blockedurls = response['youshouldknowbetter'];
     for (var i=0; i<blockedurls.length; i++){
         // migration for older data format
-        if (blockedurls[i].urls){
+        if (blockedurls[i].url){
             var pattern = RegExp(blockedurls[i].url,"i");
         }
         else{
