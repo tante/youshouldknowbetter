@@ -1,18 +1,26 @@
 // load strings
-var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave","tableHeadingURL","tableHeadingName","tableHeadingComment"];
+var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave","optionsButtonAddRow","tableHeadingURL","tableHeadingName","tableHeadingComment"];
 loadStrings(strings);
 
 // Saves options to localStorage.
 function save_options() {
     var tbl = document.getElementById("urlsTable");
     var blockedurls = [];
+    var rowcount = tbl.rows.length;
     // we skip the heading row
     for (var i=1, row; row=tbl.rows[i]; i++) {
         var entry={"url":"","name":"","comment":""};
         entry["url"]=row.cells[0].childNodes[0].value;
         entry["name"]=row.cells[1].childNodes[0].value;
         entry["comment"]=row.cells[2].childNodes[0].value;
-        blockedurls.push(entry);
+        if(entry['url']){
+            blockedurls.push(entry);
+        }
+        else{
+            tbl.deleteRow(i);
+            rowcount--;
+            i--;
+        }
     }
 
     chrome.storage.sync.set({"youshouldknowbetter":blockedurls});
@@ -52,14 +60,21 @@ function fill_table(contents) {
     }
 }
 
-// appends all urls to something textareay
-function fill_textarea(urls){
-    var textarea = document.getElementById("urls");
-    blockedurls = urls['youshouldknowbetter']
-        for (var i=0; i < blockedurls.length; i++){
-            textarea.value += blockedurls[i]+"\n";
-        }
+// add empty row to end of table
+function add_row(){
+    var tbl = document.getElementById("urlsTable");
+    var newrow = tbl.insertRow(tbl.rows.length);
+    if (tbl.rows.length%2==1){
+        newrow.className ="colored";
+    }
+    var newUrlCell = newrow.insertCell(0);
+    newUrlCell.innerHTML = '<input type="text" size="40">';
+    var newNameCell = newrow.insertCell(1);
+    newNameCell.innerHTML = '<input type="text" size="40">';
+    var newCommentCell = newrow.insertCell(2);
+    newCommentCell.innerHTML = '<input type="text" size="40">';
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#optionsButtonSave').addEventListener('click', save_options);
+document.querySelector('#optionsButtonAddRow').addEventListener('click', add_row);

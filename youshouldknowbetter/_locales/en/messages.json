@@ -27,6 +27,10 @@
         "message":"Save",
         "description":"Save Options Button Text"
     },
+    "optionsButtonAddRow":{
+        "message":"Add new entry",
+        "description":"New row Button Text"
+    },
     "optionsSaved":{
         "message":"Options saved",
         "description":"Confirmation of saved options"
