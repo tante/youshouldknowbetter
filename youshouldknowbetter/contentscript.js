@@ -31,7 +31,13 @@ function show_overlay(url) {
     overlay.setAttribute("class","overlay");
     overlay.setAttribute("id","youshouldknowbetteroverlay");
     overlay.innerHTML = '<div class="yskboverlayheader">'+chrome.i18n.getMessage("overlayHeading")+"</div>";
-    var displayname=url.url;
+    // old format migration fix
+    if (url.url){
+        var displayname=url.url;
+    }
+    else{
+        var displayname=url;
+    }
     if(url.name){
         displayname=url.name;
     }
