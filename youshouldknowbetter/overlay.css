@@ -1,4 +1,4 @@
-.overlay{
+.yskboverlay{
     position: fixed;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     font-family: sans-serif, sans;
 }
 
-.overlay button{
+.yskboverlay button{
     font-size: 22px;
     padding: 2px 6px 3px;
     border: 2px outset buttonface;
@@ -25,7 +25,7 @@
     border-image-repeat: initial;*/
 }
 
-.overlay a{
+.yskboverlay a{
     color: white;
     font-weight: bold;
 }

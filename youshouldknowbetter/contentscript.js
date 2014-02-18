@@ -28,7 +28,7 @@ function destroy_overlay(){
 
 function show_overlay(url) {
     var overlay = document.createElement("div");
-    overlay.setAttribute("class","overlay");
+    overlay.setAttribute("class","yskboverlay");
     overlay.setAttribute("id","youshouldknowbetteroverlay");
     overlay.innerHTML = '<div class="yskboverlayheader">'+chrome.i18n.getMessage("overlayHeading")+"</div>";
     // old format migration fix
