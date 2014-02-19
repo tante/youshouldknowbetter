@@ -48,3 +48,13 @@ function show_overlay(url) {
     overlay.innerHTML += "<button onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
     document.body.appendChild(overlay);
 }
+
+// hotkey handler
+function keypress_handler(e) {
+    // keyCode 27 is ESC
+    if (e.keyCode == 27){
+        destroy_overlay(); 
+    }
+}
+// register the handler 
+document.addEventListener('keyup', keypress_handler, false);
