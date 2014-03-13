@@ -21,11 +21,64 @@ function checkforblocks(response) {
     }
 }
 
+/* 
+ * Try to detect the authors name
+ * There are a few ways to do this
+ *   * <meta name="author">
+ *   * finding a html entity with the id "author"
+ *   * maybe a few more
+ * # TODO: find reasonable order of tests (some outfits use the author meta thingy for their organisation)
+ * returns the author name or false if none found
+ */
+function find_author(){
+    // look for schema.org metainfo
+    iterator = document.evaluate( '//*[@itemprop]', document, null, XPathResult.ANY_TYPE, null );
+    node = iterator.iterateNext();
+    while(node){
+        if(node.getAttribute("itemprop")=="author")
+        {
+            text = node.innerHTML;
+            // strip tags from the string (some outfits put hrefs in there) 
+            text = text.replace( /<.*?>/g, '' );
+            // strip linebreaks (yeah those happen)
+            text = text.replace( /\\n/g,'');
+            // strip whitespace from the beginning and end
+            text = text.trim();
+            return text;
+        }
+        node=iterator.iterateNext();
+    }
+    
+    // look for meta tag <meta name="author"
+    metatags = document.getElementsByTagName("meta");
+    for(i=0;i<metatags.length;i++){
+        if(metatags[i].getAttribute("name")=="author"){
+            return metatags[i].getAttribute("content");
+        }
+    }
+    
+    // if we have not found anything return false 
+    return false;
+}
+
+function log_author(){
+    console.log("Author: "+find_author())
+}
+
+window.onload = log_author();
+
+/* 
+ * Remove the overlay 
+ * */
 function destroy_overlay(){
     overlay = document.getElementById("youshouldknowbetteroverlay");
     overlay.parentNode.removeChild(overlay);
 }
 
+/*
+ * Show the overlay
+ * #TODO Needs serious cleanup
+ */
 function show_overlay(url) {
     var overlay = document.createElement("div");
     overlay.setAttribute("class","yskboverlay");
@@ -58,3 +111,4 @@ function keypress_handler(e) {
 }
 // register the handler 
 document.addEventListener('keyup', keypress_handler, false);
+
