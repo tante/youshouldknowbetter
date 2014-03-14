@@ -27,8 +27,8 @@
         "message":"Speichern",
         "description":"Beschriftung des Speichern Knopfes"
     },
-    "optionsButtonAddRow":{
-        "message":"Neuen Eintrag hinzufügen",
+    "ButtonUrlsAddRow":{
+        "message":"Neuen Website hinzufügen",
         "description":"Beschriftung des Knopfes für einen neuen Eintrag"
     },
     "optionsSaved":{
@@ -61,15 +61,15 @@
         "message":"Ja",
         "description":"Beschriftung des Ausblendeknopfes"
     },
-    "tableHeadingURL":{
+    "urlsTableHeadingURL":{
         "message":"URL Muster",
         "description":"Spaltenkopfzeile der URL Muster"
     },
-    "tableHeadingName":{
+    "urlsTableHeadingName":{
         "message":"Name (optional)",
         "description":"Spaltenkopfzeile für die Namensspalte der URL Muster"
     },
-    "tableHeadingComment":{
+    "urlsTableHeadingComment":{
         "message":"Kommentar (optional)",
         "description":"Spaltenkopfzeile für die Kommentarspalte der URL Muster"
     }

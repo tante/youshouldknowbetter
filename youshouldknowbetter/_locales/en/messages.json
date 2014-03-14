@@ -27,8 +27,8 @@
         "message":"Save",
         "description":"Save Options Button Text"
     },
-    "optionsButtonAddRow":{
-        "message":"Add new entry",
+    "ButtonUrlsAddRow":{
+        "message":"Add new Website",
         "description":"New row Button Text"
     },
     "optionsSaved":{
@@ -61,15 +61,15 @@
         "message":"Yes",
         "description":"Button text to hide overlay"
     },
-    "tableHeadingURL":{
+    "urlsTableHeadingURL":{
         "message":"URL pattern",
         "description":"Table Row header for the URL field"
     },
-    "tableHeadingName":{
+    "urlsTableHeadingName":{
         "message":"name (optional)",
         "description":"Table row header for the optional URL pattern name"
     },
-    "tableHeadingComment":{
+    "urlsTableHeadingComment":{
         "message":"comment (optional)",
         "description":"Table row header for the optional URL pattern comment"
     }

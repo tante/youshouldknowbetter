@@ -1,5 +1,5 @@
 // load strings
-var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave","optionsButtonAddRow","tableHeadingURL","tableHeadingName","tableHeadingComment"];
+var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave","ButtonUrlsAddRow","urlsTableHeadingURL","urlsTableHeadingName","urlsTableHeadingComment"];
 loadStrings(strings);
 
 // Saves options to localStorage.
@@ -35,10 +35,10 @@ function save_options() {
 
 // Restores select box state to saved value from localStorage.
 function restore_options() {
-    chrome.storage.sync.get("youshouldknowbetter",fill_table);
+    chrome.storage.sync.get("youshouldknowbetter",fill_urls_table);
 }
 
-function fill_table(contents) {
+function fill_urls_table(contents) {
     var urls = contents['youshouldknowbetter'];
     for (var i=0; i < urls.length; i++) {
         // migration path for old url style
@@ -60,8 +60,8 @@ function fill_table(contents) {
     }
 }
 
-// add empty row to end of table
-function add_row(){
+// add empty row to end of table of urls
+function add_urls_row(){
     var tbl = document.getElementById("urlsTable");
     var newrow = tbl.insertRow(tbl.rows.length);
     if (tbl.rows.length%2==1){
@@ -77,4 +77,4 @@ function add_row(){
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#optionsButtonSave').addEventListener('click', save_options);
-document.querySelector('#optionsButtonAddRow').addEventListener('click', add_row);
+document.querySelector('#ButtonUrlsAddRow').addEventListener('click', add_urls_row);
