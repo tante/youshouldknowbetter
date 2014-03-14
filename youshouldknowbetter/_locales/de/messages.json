@@ -80,7 +80,7 @@
     "authorsTableHeadingComment":{
         "message":"Kommentar (optional)",
         "description":"Spaltenkopfzeile für die Kommentarspalte der autoren"
-    }
+    },
     "ButtonAuthorsAddRow":{
         "message":"Neuen Autor hinzufügen",
         "description":"Beschriftung des Knopfes für einen neuen Eintrag"

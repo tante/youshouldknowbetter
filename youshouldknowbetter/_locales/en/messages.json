@@ -80,7 +80,7 @@
     "authorsTableHeadingComment":{
         "message":"comment (optional)",
         "description":"Table row header for the optional author comment"
-    }
+    },
     "ButtonAuthorsAddRow":{
         "message":"Add new author",
         "description":"New row Button Text"
