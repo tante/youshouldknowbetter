@@ -24,6 +24,26 @@ function save_options() {
     }
 
     chrome.storage.sync.set({"youshouldknowbetter":blockedurls});
+    
+    var tbl = document.getElementById("authorsTable");
+    var blockedauthors = [];
+    var rowcount = tbl.rows.length;
+    // we skip the heading row
+    for (var i=1, row; row=tbl.rows[i]; i++) {
+        var entry={"name":"","comment":""};
+        entry["name"]=row.cells[1].childNodes[0].value;
+        entry["comment"]=row.cells[2].childNodes[0].value;
+        if(entry['name']){
+            blockedauthors.push(entry);
+        }
+        else{
+            tbl.deleteRow(i);
+            rowcount--;
+            i--;
+        }
+    }
+    chrome.storage.sync.set({"youshouldknowbetterauthors":blockedauthors});
+
 
     // Update status to let user know options were saved.
     var status = document.getElementById("status");
@@ -36,6 +56,7 @@ function save_options() {
 // Restores select box state to saved value from localStorage.
 function restore_options() {
     chrome.storage.sync.get("youshouldknowbetter",fill_urls_table);
+    chrome.storage.sync.get("youshouldknowbetterauthors",fill_authors_table);
 }
 
 function fill_urls_table(contents) {
@@ -58,6 +79,10 @@ function fill_urls_table(contents) {
         var newCommentCell = newrow.insertCell(2);
         newCommentCell.innerHTML = '<input type="text" size="40" value="'+urls[i].comment+'">';
     }
+}
+
+function fill_authors_table(content) {
+
 }
 
 // add empty row to end of table of urls
