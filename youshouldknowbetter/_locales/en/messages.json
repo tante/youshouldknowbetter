@@ -72,7 +72,7 @@
     "urlsTableHeadingComment":{
         "message":"comment (optional)",
         "description":"Table row header for the optional URL pattern comment"
-    }
+    },
     "authorsTableHeadingName":{
         "message":"name",
         "description":"Table row header for the authors name"
@@ -85,6 +85,4 @@
         "message":"Add new author",
         "description":"New row Button Text"
     },
-
-
 }

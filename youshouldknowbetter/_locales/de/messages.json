@@ -72,7 +72,7 @@
     "urlsTableHeadingComment":{
         "message":"Kommentar (optional)",
         "description":"Spaltenkopfzeile für die Kommentarspalte der URL Muster"
-    }
+    },
     "authorsTableHeadingName":{
         "message":"Name",
         "description":"Spaltenkopfzeile für die Namensspalte der Autoren"
