@@ -92,5 +92,9 @@
     "ButtonAuthorsAddRow":{
         "message":"Add new author",
         "description":"New row Button Text"
+    },
+    "and":{
+        "message":"and",
+        "description":"the word and"
     }
 }

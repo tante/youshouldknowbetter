@@ -92,5 +92,9 @@
     "ButtonAuthorsAddRow":{
         "message":"Neuen Autor hinzufügen",
         "description":"Beschriftung des Knopfes für einen neuen Eintrag"
+    },
+    "and":{
+        "message":"und",
+        "description":"das Verknüpfungswort und"
     }
 }
