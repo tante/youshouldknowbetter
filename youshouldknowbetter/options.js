@@ -13,7 +13,7 @@ function save_options() {
     var rowcount = tbl.rows.length;
     // we skip the heading row
     for (var i=1, row; row=tbl.rows[i]; i++) {
-        var entry={"url":"","name":"","comment":""};
+        entry={"url":"","name":"","comment":""};
         entry["url"]=row.cells[0].childNodes[0].value;
         entry["name"]=row.cells[1].childNodes[0].value;
         entry["comment"]=row.cells[2].childNodes[0].value;
@@ -34,7 +34,7 @@ function save_options() {
     var rowcount = tbl.rows.length;
     // we skip the heading row
     for (var i=1, row; row=tbl.rows[i]; i++) {
-        var entry={"name":"","comment":""};
+        entry={"name":"","comment":""};
         entry["name"]=row.cells[0].childNodes[0].value;
         entry["comment"]=row.cells[1].childNodes[0].value;
         if(entry['name']){
@@ -48,7 +48,8 @@ function save_options() {
     }
 
     settings['authors']=blockedauthors;
-
+    console.log("STORING:");
+    console.log(settings);
     chrome.storage.sync.set({"youshouldknowbetter":settings});
 
 
@@ -67,6 +68,7 @@ function restore_options() {
 
 function fill_tables(contents) {
     var settings = contents['youshouldknowbetter'];
+    console.log(settings);
     var urls = settings["urls"];
     // fill in urls
     for (var i=0; i < urls.length; i++) {
@@ -87,6 +89,7 @@ function fill_tables(contents) {
         var newCommentCell = newrow.insertCell(2);
         newCommentCell.innerHTML = '<input type="text" size="40" value="'+urls[i].comment+'">';
     }
+
     // fill in authors
     var authors = settings["authors"];
     for (var i=0; i < authors.length; i++) {
@@ -96,9 +99,9 @@ function fill_tables(contents) {
             newrow.className ="colored";
         }
         var newNameCell = newrow.insertCell(0);
-        newNameCell.innerHTML = '<input type="text" size="40" value="'+urls[i].name+'">';
+        newNameCell.innerHTML = '<input type="text" size="40" value="'+authors[i].name+'">';
         var newCommentCell = newrow.insertCell(1);
-        newCommentCell.innerHTML = '<input type="text" size="40" value="'+urls[i].comment+'">';
+        newCommentCell.innerHTML = '<input type="text" size="40" value="'+authors[i].comment+'">';
     }
 }
 
