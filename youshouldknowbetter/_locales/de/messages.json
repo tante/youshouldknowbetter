@@ -20,7 +20,15 @@
         "description": "Fette Zwischenüberschrift der Einstellungsseite"
     },
     "optionsURLexplanation":{
-        "message": "Das zu filternde URL Muster kommt in die erste Spalte (z.B. example.org oder example.org/unterseite). Optional können ein eingängigerer Name (z.B. Horst's blog) in der zweiten Spalte sowie ein erklärender Kommentar in der dritten Spalte hinzugefügt werden. Der Kommentar wird als Warnung angezeigt. Zum Löschen einer ZEile einfach deren erste Spalte leeren, die Zeile wird dann beim Speichern entfernt.",
+        "message": "Das zu filternde URL Muster kommt in die erste Spalte (z.B. example.org oder example.org/unterseite). Optional können ein eingängigerer Name (z.B. Horst's blog) in der zweiten Spalte sowie ein erklärender Kommentar in der dritten Spalte hinzugefügt werden. Der Kommentar wird als Warnung angezeigt. Zum Löschen einer Zeile einfach deren erste Spalte leeren, die Zeile wird dann beim Speichern entfernt.",
+        "description": "Erläuterung über dem URL Feld"
+    },
+    "optionsAuthorsHeading":{
+        "message": "Betroffene Namen",
+        "description": "Fette Zwischenüberschrift der Einstellungsseite"
+    },
+    "optionsAuthorsexplanation":{
+        "message": "Der zu filternde Name (oder Teil es Namens) kommt in die erste Spalte. Optional kann ein erklärender Kommentar in der zweiten Spalte hinzugefügt werden. Der Kommentar wird als Warnung angezeigt. Zum Löschen einer Zeile einfach deren erste Spalte leeren, die Zeile wird dann beim Speichern entfernt.",
         "description": "Erläuterung über dem URL Feld"
     },
     "optionsButtonSave":{
@@ -84,5 +92,5 @@
     "ButtonAuthorsAddRow":{
         "message":"Neuen Autor hinzufügen",
         "description":"Beschriftung des Knopfes für einen neuen Eintrag"
-    },
+    }
 }

@@ -23,6 +23,14 @@
         "message": "Add the URL pattern you want blocked (such as example.org or example.org/folder) to the first column. Optionally, you can add a name for the pattern (i.e. example's blog) in the second and an explaining comment in the third column. The comment is displayed in the warning overlay. To delete an entry just clear the first column of that entry, the entry will be deleted upon saving.",
         "description": "Explaining text above the URL table"
     },
+    "optionsAuthorsHeading":{
+        "message": "Affected Authors",
+        "description": "Bolded Heading on top of the Author list"
+    },
+    "optionsAuthorsexplanation":{
+        "message": "Add the name (or part of the name) of the author you want to be warned about in the first column. Optionally, you can add an explaining comment in the second column. The comment is displayed in the warning overlay. To delete an entry just clear the first column of that entry, the entry will be deleted upon saving.",
+        "description": "Explaining text above the author table"
+    },
     "optionsButtonSave":{
         "message":"Save",
         "description":"Save Options Button Text"
@@ -84,5 +92,5 @@
     "ButtonAuthorsAddRow":{
         "message":"Add new author",
         "description":"New row Button Text"
-    },
+    }
 }

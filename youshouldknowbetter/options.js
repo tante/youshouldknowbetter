@@ -1,10 +1,14 @@
+// migrate old hackish settings
+migrateSettings();
+
 // load strings
-var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsButtonSave","ButtonUrlsAddRow","urlsTableHeadingURL","urlsTableHeadingName","urlsTableHeadingComment"];
+var strings =["optionsHeading","optionsPagesHeading","optionsURLexplanation","optionsAuthorsHeading","optionsAuthorsexplanation","optionsButtonSave","ButtonUrlsAddRow","urlsTableHeadingURL","urlsTableHeadingName","urlsTableHeadingComment","authorsTableHeadingName","authorsTableHeadingComment","ButtonAuthorsAddRow"];
 loadStrings(strings);
 
 // Saves options to localStorage.
 function save_options() {
     var tbl = document.getElementById("urlsTable");
+    var settings = get_settingstemplate(); 
     var blockedurls = [];
     var rowcount = tbl.rows.length;
     // we skip the heading row
@@ -22,8 +26,8 @@ function save_options() {
             i--;
         }
     }
-
-    chrome.storage.sync.set({"youshouldknowbetter":blockedurls});
+    
+    settings["urls"] = blockedurls;
     
     var tbl = document.getElementById("authorsTable");
     var blockedauthors = [];
@@ -31,8 +35,8 @@ function save_options() {
     // we skip the heading row
     for (var i=1, row; row=tbl.rows[i]; i++) {
         var entry={"name":"","comment":""};
-        entry["name"]=row.cells[1].childNodes[0].value;
-        entry["comment"]=row.cells[2].childNodes[0].value;
+        entry["name"]=row.cells[0].childNodes[0].value;
+        entry["comment"]=row.cells[1].childNodes[0].value;
         if(entry['name']){
             blockedauthors.push(entry);
         }
@@ -42,7 +46,10 @@ function save_options() {
             i--;
         }
     }
-    chrome.storage.sync.set({"youshouldknowbetterauthors":blockedauthors});
+
+    settings['authors']=blockedauthors;
+
+    chrome.storage.sync.set({"youshouldknowbetter":settings});
 
 
     // Update status to let user know options were saved.
@@ -55,12 +62,13 @@ function save_options() {
 
 // Restores select box state to saved value from localStorage.
 function restore_options() {
-    chrome.storage.sync.get("youshouldknowbetter",fill_urls_table);
-    chrome.storage.sync.get("youshouldknowbetterauthors",fill_authors_table);
+    chrome.storage.sync.get("youshouldknowbetter",fill_tables);
 }
 
-function fill_urls_table(contents) {
-    var urls = contents['youshouldknowbetter'];
+function fill_tables(contents) {
+    var settings = contents['youshouldknowbetter'];
+    var urls = settings["urls"];
+    // fill in urls
     for (var i=0; i < urls.length; i++) {
         // migration path for old url style
         if (typeof(urls[i])=="string"){
@@ -79,10 +87,19 @@ function fill_urls_table(contents) {
         var newCommentCell = newrow.insertCell(2);
         newCommentCell.innerHTML = '<input type="text" size="40" value="'+urls[i].comment+'">';
     }
-}
-
-function fill_authors_table(content) {
-
+    // fill in authors
+    var authors = settings["authors"];
+    for (var i=0; i < authors.length; i++) {
+        var tbl = document.getElementById("authorsTable");
+        var newrow = tbl.insertRow(tbl.rows.length);
+        if (i%2==1){
+            newrow.className ="colored";
+        }
+        var newNameCell = newrow.insertCell(0);
+        newNameCell.innerHTML = '<input type="text" size="40" value="'+urls[i].name+'">';
+        var newCommentCell = newrow.insertCell(1);
+        newCommentCell.innerHTML = '<input type="text" size="40" value="'+urls[i].comment+'">';
+    }
 }
 
 // add empty row to end of table of urls
@@ -100,6 +117,19 @@ function add_urls_row(){
     newCommentCell.innerHTML = '<input type="text" size="40">';
 }
 
+function add_authors_row(){
+    var tbl = document.getElementById("authorsTable");
+    var newrow = tbl.insertRow(tbl.rows.length);
+    if (tbl.rows.length%2==1){
+        newrow.className ="colored";
+    }
+    var newNameCell = newrow.insertCell(0);
+    newNameCell.innerHTML = '<input type="text" size="40">';
+    var newCommentCell = newrow.insertCell(1);
+    newCommentCell.innerHTML = '<input type="text" size="40">';
+}
+
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#optionsButtonSave').addEventListener('click', save_options);
 document.querySelector('#ButtonUrlsAddRow').addEventListener('click', add_urls_row);
+document.querySelector('#ButtonAuthorsAddRow').addEventListener('click', add_authors_row);

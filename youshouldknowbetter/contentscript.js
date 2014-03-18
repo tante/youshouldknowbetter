@@ -1,7 +1,10 @@
+migrateSettings();
 chrome.storage.sync.get("youshouldknowbetter",checkforblocks);
 
 function checkforblocks(response) {
-    blockedurls = response['youshouldknowbetter'];
+    console.log(response);
+    // check for blocked urls
+    blockedurls = response['youshouldknowbetter']["urls"];
     for (var i=0; i<blockedurls.length; i++){
         // migration for older data format
         if (blockedurls[i].url){
@@ -27,11 +30,11 @@ function checkforblocks(response) {
  *   * <meta name="author">
  *   * finding a html entity with the id "author"
  *   * maybe a few more
- * # TODO: find reasonable order of tests (some outfits use the author meta thingy for their organisation)
- * returns the author name or false if none found
+ * returns the author names or an empty array if none found
  */
 function find_author(){
     // look for schema.org metainfo
+    authors = [];
     iterator = document.evaluate( '//*[@itemprop]', document, null, XPathResult.ANY_TYPE, null );
     node = iterator.iterateNext();
     while(node){
@@ -44,21 +47,20 @@ function find_author(){
             text = text.replace( /\\n/g,'');
             // strip whitespace from the beginning and end
             text = text.trim();
-            return text;
+            authors.push(text);
         }
         node=iterator.iterateNext();
     }
     
-    // look for meta tag <meta name="author"
+    // look for meta tag <meta name="author" ...>
     metatags = document.getElementsByTagName("meta");
     for(i=0;i<metatags.length;i++){
         if(metatags[i].getAttribute("name")=="author"){
-            return metatags[i].getAttribute("content");
+            authors.push(metatags[i].getAttribute("content"));
         }
     }
     
-    // if we have not found anything return false 
-    return false;
+    return authors;
 }
 
 function log_author(){
