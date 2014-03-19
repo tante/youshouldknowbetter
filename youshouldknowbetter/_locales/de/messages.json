@@ -48,8 +48,12 @@
         "description":"Überschrift des Overlays" 
     },
     "overlayQuestion":{
-        "message":"Willst Du wirklich Inhalte von $url$ lesen?",
+        "message":"Willst Du das wirklich lesen?",
         "description":"Bestätigungsfrage zum Ausblenden des Overlays",
+    },
+    "overlayIssueURLQuestion":{
+        "message":"Es ist von der Website $url.",
+        "description":"Beschreibung der Website, die das Popup triggerte",
         "placeholders": {
             "url":{
                 "content":"$1",
@@ -57,8 +61,22 @@
             }
         }
     },
-    "overlayCommentHeader":{
-        "message":"Dein Kommentar war",
+    "overlayIssueURLCommentHeading":{
+        "message":"Von der Du gesagt hast:",
+        "description":"Einleitung zum Nutzerkommentar"
+    },
+    "overlayIssueAuthorQuestion":{
+        "message":"Es ist von $name.",
+        "description":"Beschreibung des Autoren, der das Popup triggerte",
+        "placeholders": {
+            "name":{
+                "content":"$1",
+                "example":"Peter Horstmann"
+            }
+        }
+    },
+    "overlayIssueAuthorCommentHeading":{
+        "message":"Du hattest gesagt:",
         "description":"Einleitung zum Nutzerkommentar"
     },
     "overlayCommentPostQuestion":{

@@ -48,8 +48,12 @@
         "description":"Overlay Heading Text" 
     },
     "overlayQuestion":{
-        "message":"Do you really want to read content from $url$?",
+        "message":"Do you really want to read this?",
         "description":"Question for the user to confirm disabling the overlay",
+    },
+    "overlayIssueURLQuestion":{
+        "message":"It's from $url.",
+        "description":"Description of what url triggered the popup",
         "placeholders": {
             "url":{
                 "content":"$1",
@@ -57,8 +61,22 @@
             }
         }
     },
-    "overlayCommentHeader":{
-        "message":"Your comment was",
+    "overlayIssueURLCommentHeading":{
+        "message":"Which you said was:",
+        "description":"Introduction for displaying the user's comment"
+    },
+    "overlayIssueAuthorQuestion":{
+        "message":"It's by $name.",
+        "description":"Description of which author triggered the popup",
+        "placeholders": {
+            "name":{
+                "content":"$1",
+                "example":"Peter Example"
+            }
+        }
+    },
+    "overlayIssueAuthorCommentHeading":{
+        "message":"Who you said was:",
         "description":"Introduction for displaying the user's comment"
     },
     "overlayCommentPostQuestion":{

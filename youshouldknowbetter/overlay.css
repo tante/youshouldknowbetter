@@ -46,4 +46,13 @@
 #youshouldknowbetteroverlay .yskboverlaycommentPostQuestion{
     font-size: 28px;
 }
+#youshouldknowbetteroverlay .yskboverlayissuesbox{
+    width:auto;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 20px;
+    border-color: #FFFFFF;
+    border-left: solid 2px;
+    border-right: solid 2px;
+}
 

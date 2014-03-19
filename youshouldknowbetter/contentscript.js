@@ -99,46 +99,90 @@ function destroy_overlay(){
  * #TODO Needs serious cleanup
  */
 function show_overlay(issues) {
-    console.log(issues);
+    
     var overlay = document.createElement("div");
     overlay.setAttribute("class","yskboverlay");
     overlay.setAttribute("id","youshouldknowbetteroverlay");
     overlay.innerHTML = '<div class="yskboverlayheader">'+chrome.i18n.getMessage("overlayHeading")+"</div>";
-    
-    var displayname = false;
-    var displaycomment = false;
+    overlay.innerHTML += '<div class="yskboverlayquestion">'+chrome.i18n.getMessage("overlayQuestion")+"</div>";
+
+    var displayurlname = false;
+    var displayurlcomment = false;
     // See if its about a blocked url
     if (issues.url){
         displayname=issues.url.url;
         // if the url has a pretty name show that one
         if(issues.url.name){
-            displayname=issues.url.name;
+            displayurlname=issues.url.name;
         }
     }
     // if the url has an associated comment show that one
-    if(displayname && issues.url.comment){
-        displaycomment=issues.url.comment;
-    } 
+    if(displayurlname && issues.url.comment){
+        displayurlcomment=issues.url.comment;
+    }
+
+    var displayauthor = '';
+    var displayauthorcomment = '';
+    var noofcomments = 0;
 
     // now check for author issues
-    if(displayname && issues.authors){
-        displayname += " "+chrome.i18n.getMessage("and")+" ";
-        displayname += issues.authors[0].name;
-    }
-
-    if(!displayname && issues.authors){
-        displayname = issues.authors[0].name + " (found as:"+issues.authors[0].foundas+")";
-        if(issues.authors[0].comment){
-            displaycomment=issues.authors[0].comment;
+    if(issues.authors){
+        for (var i = 0, numauthors = issues.authors.length; i < numauthors; i++) {
+            // for more than one author connect each with "and"
+            if(i>0){
+                displayauthor += " "+chrome.i18n.getMessage("and")+" ";
+            }
+            displayauthor += issues.authors[i].name + " (found as:"+issues.authors[i].foundas+")";
+            if(issues.authors[i].comment){
+                if(noofcomments>0){
+                    displayauthorcomment += " "+chrome.i18n.getMessage("and")+" ";
+                }
+                displayauthorcomment += issues.authors[i].comment;
+                noofcomments++;
+            }
         }
     }
-    
-    overlay.innerHTML += '<div class="yskboverlayquestion">'+chrome.i18n.getMessage("overlayQuestion",displayname)+"</div>";
-    if(displaycomment){
-        overlay.innerHTML += '<div class="yskboverlaycommentHeader">'+chrome.i18n.getMessage("overlayCommentHeader")+':</div>'+'<div class="yskboverlaycommentText">'+displaycomment+'</div><div class="yskboverlaycommentPostQuestion">'+chrome.i18n.getMessage("overlayCommentPostQuestion")+'</div>';
+    // if url issue
+    if(issues.url){
+        overlay.innerHTML += getIssueBox(
+                chrome.i18n.getMessage("overlayIssueURLQuestion",displayurlname),
+                chrome.i18n.getMessage("overlayIssueURLCommentHeading"),
+                displayurlcomment,
+                    );
     }
+
+    if(issues.authors){
+        overlay.innerHTML += getIssueBox(
+                chrome.i18n.getMessage("overlayIssueAuthorQuestion",displayauthor),
+                chrome.i18n.getMessage("overlayIssueAuthorCommentHeading"),
+                displayauthorcomment,
+                    );
+    
+    }
+
+        overlay.innerHTML += '<div class="yskboverlaycommentPostQuestion">'+chrome.i18n.getMessage("overlayCommentPostQuestion")+'</div>';
+    }
+
+    // add the button to close the area
     overlay.innerHTML += "<button onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
     document.body.appendChild(overlay);
+}
+
+function getIssueBox(question,commentheading,comment){
+    templatehead = '<div class="yskboverlayissuesbox"> \
+    <div class="yskboverlayquestion">$question</div>';
+    templatebody = '
+    <div class="yskboverlaycommentHeader">$commentheading</div> \
+    <div class="yskboverlaycommentText">$comment</div>';
+    templateend = '</div>';
+
+    var str = templatehead.replace("$question",question);
+    if(commentheading){
+        str += templatebody.replace("$commentheading",commentheading);
+        str = str.replace("$comment",comment);
+    }
+    str += templateend;
+    return str; 
 }
 
 // hotkey handler
