@@ -18,7 +18,7 @@ function loadStrings(list){
 /* clean settings template */
 
 function get_settingstemplate(){
-    var settings = {"version":2}
+    var settings = {"version":2};
     return settings;
 }
 
@@ -29,12 +29,12 @@ function get_settingstemplate(){
 function migrateSettings(){
     chrome.storage.sync.get("youshouldknowbetter", function (data){
         try{
-            data['version'];
+            data.version;
         }
         catch(err){
             var settings = get_settingstemplate();
-            settings["urls"]=data["youshouldknowbetter"];
+            settingsurls=data.youshouldknowbetter;
             chrome.storage.sync.set({"youshouldknowbetter":settings});
         }
-    })
+    });
 }
