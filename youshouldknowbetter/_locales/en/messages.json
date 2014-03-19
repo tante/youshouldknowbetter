@@ -114,5 +114,9 @@
     "and":{
         "message":"and",
         "description":"the word and"
+    },
+    "foundas":{
+        "message":"found as",
+        "description":"prefix to the actually detected author name"
     }
 }

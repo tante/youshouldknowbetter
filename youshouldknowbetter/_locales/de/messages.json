@@ -114,5 +114,10 @@
     "and":{
         "message":"und",
         "description":"das Verknüpfungswort und"
+    },
+    "foundas":{
+        "message":"gefunden:",
+        "description": "ein gefilterter Autor wurde gefunden als:"
     }
+
 }
