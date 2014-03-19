@@ -49,7 +49,7 @@
     },
     "overlayQuestion":{
         "message":"Willst Du das wirklich lesen?",
-        "description":"Bestätigungsfrage zum Ausblenden des Overlays",
+        "description":"Bestätigungsfrage zum Ausblenden des Overlays"
     },
     "overlayIssueURLQuestion":{
         "message":"Es ist von der Website $url.",

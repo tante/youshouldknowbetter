@@ -49,7 +49,7 @@
     },
     "overlayQuestion":{
         "message":"Do you really want to read this?",
-        "description":"Question for the user to confirm disabling the overlay",
+        "description":"Question for the user to confirm disabling the overlay"
     },
     "overlayIssueURLQuestion":{
         "message":"It's from $url.",
