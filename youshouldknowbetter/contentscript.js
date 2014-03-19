@@ -6,35 +6,36 @@ function checkforblocks(response) {
     var issues = {};
     var issuefound = false;
     // check for blocked urls
-    blockedurls = response['youshouldknowbetter']["urls"];
+    blockedurls = response.youshouldknowbetter.urls;
     for (var i=0; i<blockedurls.length; i++){
         // migration for older data format
+        var pattern;
         if (blockedurls[i].url){
-            var pattern = RegExp(blockedurls[i].url,"i");
+            pattern = RegExp(blockedurls[i].url,"i");
         }
         else{
-            var pattern = RegExp(blockedurls[i],"i");
+            pattern = RegExp(blockedurls[i],"i");
         }
         if(pattern.test(window.location.href)){
             /* check if the referrer is from this domain. 
              * if not show the overlay */
             var ref = document.referrer;
             if(!pattern.test(ref)){
-                issues["url"] = blockedurls[i];
+                issues.url = blockedurls[i];
                 issuefound = true;
             }
         }
     }
     // check for author
-    blockedauthors = response["youshouldknowbetter"]["authors"];
+    blockedauthors = response.youshouldknowbetter.authors;
     page_authors = find_authors();
     tmpauthors = [];
     var authorfound = false;
     for (var i = 0, blocks = blockedauthors.length; i < blocks; i++) {
         for (var j = 0, pauthors = page_authors.length; j < pauthors; j++) {
-            if(page_authors[j].search(blockedauthors[i]['name'])>-1){
+            if(page_authors[j].search(blockedauthors[i].name)>-1){
                 author=blockedauthors[i];
-                author["foundas"]=page_authors[j];
+                author.foundas=page_authors[j];
                 tmpauthors.push(author);
                 authorfound = true;
                 issuefound = true;
@@ -42,7 +43,7 @@ function checkforblocks(response) {
         }
     }
     if (authorfound) {
-        issues["authors"]=tmpauthors;
+        issues.authors=tmpauthors;
     }
     if (issuefound){
         show_overlay(issues);
@@ -60,22 +61,15 @@ function checkforblocks(response) {
 function find_authors(){
     // look for schema.org metainfo
     authors = [];
-    iterator = document.evaluate( '//*[@itemprop]', document, null, XPathResult.ANY_TYPE, null );
-    node = iterator.iterateNext();
-    while(node){
-        if(node.getAttribute("itemprop")=="author")
-        {
-            text = node.innerHTML;
-            // strip tags from the string (some outfits put hrefs in there) 
-            text = text.replace( /<.*?>/g, '' );
-            // strip linebreaks (yeah those happen)
-            text = text.replace( /\\n/g,'');
-            // strip whitespace from the beginning and end
-            text = text.trim();
+    // use jquery. Which seems to be the end all solution to every javascript issue
+    textnodes = $("[itemprop|='author']");
+    for (var i = 0, nodes = textnodes.length; i < nodes; i++) {
+        text = $(textnodes[i]).text().replace(/\\n/g,"").trim();
+        if(text.length<40){
             authors.push(text);
         }
-        node=iterator.iterateNext();
-    }
+    }  
+   
     // look for meta tag <meta name="author" ...>
     metatags = document.getElementsByTagName("meta");
     for(i=0;i<metatags.length;i++){
@@ -132,7 +126,7 @@ function show_overlay(issues) {
             if(i>0){
                 displayauthor += " "+chrome.i18n.getMessage("and")+" ";
             }
-            displayauthor += issues.authors[i].name + " (found as:"+issues.authors[i].foundas+")";
+            displayauthor += issues.authors[i].name + " ("+chrome.i18n.getMessage("foundas")+" \""+issues.authors[i].foundas+"\")";
             if(issues.authors[i].comment){
                 if(noofcomments>0){
                     displayauthorcomment += " "+chrome.i18n.getMessage("and")+" ";
@@ -170,7 +164,6 @@ function show_overlay(issues) {
 }
 
 function getIssueBox(question,commentheading,comment){
-    console.log(question);
     templatehead = '<div class="yskboverlayissuesbox"> \
     <div class="yskboverlayquestion">$question</div>';
     templatebody = '\

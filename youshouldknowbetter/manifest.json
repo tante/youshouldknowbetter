@@ -19,7 +19,7 @@
         "matches" : [
             "*://*/*"
             ],
-        "js" : ["tools.js","contentscript.js"],
+        "js" : ["jquery-2.1.0.min.js","tools.js","contentscript.js"],
         "css": ["overlay.css"],
         "run_at" : "document_idle",
         "all_frames" : false
