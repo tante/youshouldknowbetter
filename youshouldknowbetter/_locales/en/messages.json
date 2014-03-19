@@ -52,7 +52,7 @@
         "description":"Question for the user to confirm disabling the overlay"
     },
     "overlayIssueURLQuestion":{
-        "message":"It's from $url.",
+        "message":"It's from $url$.",
         "description":"Description of what url triggered the popup",
         "placeholders": {
             "url":{
@@ -66,7 +66,7 @@
         "description":"Introduction for displaying the user's comment"
     },
     "overlayIssueAuthorQuestion":{
-        "message":"It's by $name.",
+        "message":"It's by $name$.",
         "description":"Description of which author triggered the popup",
         "placeholders": {
             "name":{

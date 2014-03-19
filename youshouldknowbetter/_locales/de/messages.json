@@ -52,7 +52,7 @@
         "description":"Bestätigungsfrage zum Ausblenden des Overlays"
     },
     "overlayIssueURLQuestion":{
-        "message":"Es ist von der Website $url.",
+        "message":"Es ist von der Website $url$.",
         "description":"Beschreibung der Website, die das Popup triggerte",
         "placeholders": {
             "url":{
@@ -66,7 +66,7 @@
         "description":"Einleitung zum Nutzerkommentar"
     },
     "overlayIssueAuthorQuestion":{
-        "message":"Es ist von $name.",
+        "message":"Es ist von $name$.",
         "description":"Beschreibung des Autoren, der das Popup triggerte",
         "placeholders": {
             "name":{

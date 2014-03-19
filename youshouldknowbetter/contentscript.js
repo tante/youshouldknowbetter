@@ -110,7 +110,7 @@ function show_overlay(issues) {
     var displayurlcomment = false;
     // See if its about a blocked url
     if (issues.url){
-        displayname=issues.url.url;
+        displayurlname=issues.url.url;
         // if the url has a pretty name show that one
         if(issues.url.name){
             displayurlname=issues.url.name;
@@ -147,7 +147,7 @@ function show_overlay(issues) {
         overlay.innerHTML += getIssueBox(
                 chrome.i18n.getMessage("overlayIssueURLQuestion",displayurlname),
                 chrome.i18n.getMessage("overlayIssueURLCommentHeading"),
-                displayurlcomment,
+                displayurlcomment
                     );
     }
 
@@ -155,23 +155,25 @@ function show_overlay(issues) {
         overlay.innerHTML += getIssueBox(
                 chrome.i18n.getMessage("overlayIssueAuthorQuestion",displayauthor),
                 chrome.i18n.getMessage("overlayIssueAuthorCommentHeading"),
-                displayauthorcomment,
+                displayauthorcomment
                     );
     
     }
 
-        overlay.innerHTML += '<div class="yskboverlaycommentPostQuestion">'+chrome.i18n.getMessage("overlayCommentPostQuestion")+'</div>';
-    }
+    overlay.innerHTML += '<div class="yskboverlaycommentPostQuestion">'+chrome.i18n.getMessage("overlayCommentPostQuestion")+'</div>';
+    
 
     // add the button to close the area
     overlay.innerHTML += "<button onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
     document.body.appendChild(overlay);
+
 }
 
 function getIssueBox(question,commentheading,comment){
+    console.log(question);
     templatehead = '<div class="yskboverlayissuesbox"> \
     <div class="yskboverlayquestion">$question</div>';
-    templatebody = '
+    templatebody = '\
     <div class="yskboverlaycommentHeader">$commentheading</div> \
     <div class="yskboverlaycommentText">$comment</div>';
     templateend = '</div>';
