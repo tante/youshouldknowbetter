@@ -172,7 +172,7 @@ function getIssueBox(question,commentheading,comment){
     templateend = '</div>';
 
     var str = templatehead.replace("$question",question);
-    if(commentheading){
+    if(comment){
         str += templatebody.replace("$commentheading",commentheading);
         str = str.replace("$comment",comment);
     }
