@@ -48,8 +48,6 @@ function save_options() {
     }
 
     settings['authors']=blockedauthors;
-    console.log("STORING:");
-    console.log(settings);
     chrome.storage.sync.set({"youshouldknowbetter":settings});
 
 
