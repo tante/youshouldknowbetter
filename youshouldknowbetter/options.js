@@ -14,10 +14,10 @@ function save_options() {
     // we skip the heading row
     for (var i=1, row; row=tbl.rows[i]; i++) {
         entry={"url":"","name":"","comment":""};
-        entry["url"]=row.cells[0].childNodes[0].value;
-        entry["name"]=row.cells[1].childNodes[0].value;
-        entry["comment"]=row.cells[2].childNodes[0].value;
-        if(entry['url']){
+        entry.url=row.cells[0].childNodes[0].value;
+        entry.name=row.cells[1].childNodes[0].value;
+        entry.comment=row.cells[2].childNodes[0].value;
+        if(entry.url){
             blockedurls.push(entry);
         }
         else{
