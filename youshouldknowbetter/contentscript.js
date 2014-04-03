@@ -65,7 +65,7 @@ function find_authors(){
     textnodes = $("[itemprop|='author']");
     for (var i = 0, nodes = textnodes.length; i < nodes; i++) {
         text = $(textnodes[i]).text().replace(/\\n/g,"").trim();
-        if(text.length<40){
+        if(text.length<60){
             authors.push(text);
         }
     }  
@@ -76,6 +76,14 @@ function find_authors(){
         if(metatags[i].getAttribute("name")=="author"){
             authors.push(metatags[i].getAttribute("content"));
         }
+    }
+
+    // look for elements with the class or ID "author" or "autor"
+    // some publications don't use Standard thingies
+    authorclassnodes = $("[class|='author'],#author,[class|='autor'],#autor");
+    for (var i = 0, len = authorclassnodes.length; i < len; i++) {
+        text = $(authorclassnodes[i]).text().replace(/\\n/g,"").trim();
+        authors.push(text);
     }
     return authors;
 }
