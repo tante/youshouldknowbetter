@@ -29,29 +29,39 @@ function checkforblocks(response) {
     // check for author
     blockedauthors = response.youshouldknowbetter.authors;
     page_authors = find_authors();
-    tmpauthors = [];
+    console.log(page_authors);
+    // we discard all found authors if there are too many. That usually means
+    // that we are on some sort of overview page or the site embed snippets
+    // from other articles making author detection wonky
+    // the threshold is 5 at the moment    
     var authorfound = false;
-    for (var i = 0, blocks = blockedauthors.length; i < blocks; i++) {
-        for (var j = 0, pauthors = page_authors.length; j < pauthors; j++) {
-            if(page_authors[j].search(blockedauthors[i].name)>-1){
-                author=blockedauthors[i];
-                author.foundas=page_authors[j];
-                // we assume that we have a new author
-                // now we check the list of blocked authors to see if we already 
-                // got that one
-                var newauthor = true;
-                for (var k = 0, len = tmpauthors.length; k < len; k++) {
-                    if(tmpauthors[k].name === author.name){
-                        newauthor = false;
+    if(page_authors.length<=5){
+        tmpauthors = [];
+        for (var i = 0, blocks = blockedauthors.length; i < blocks; i++) {
+            for (var j = 0, pauthors = page_authors.length; j < pauthors; j++) {
+                if(page_authors[j].search(blockedauthors[i].name)>-1){
+                    author=blockedauthors[i];
+                    author.foundas=page_authors[j];
+                    // we assume that we have a new author
+                    // now we check the list of blocked authors to see if we already 
+                    // got that one
+                    var newauthor = true;
+                    for (var k = 0, len = tmpauthors.length; k < len; k++) {
+                        if(tmpauthors[k].name === author.name){
+                            newauthor = false;
+                        }
                     }
-                }
-                if(newauthor){
-                    tmpauthors.push(author);
-                    authorfound = true;
-                    issuefound = true;
+                    if(newauthor){
+                        tmpauthors.push(author);
+                        authorfound = true;
+                        issuefound = true;
+                    }
                 }
             }
         }
+    }
+    else {
+        console.log("Found too many authors to be sure ("+page_authors.length+")");
     }
     if (authorfound) {
         issues.authors=tmpauthors;
