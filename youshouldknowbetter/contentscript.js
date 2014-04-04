@@ -33,9 +33,10 @@ function checkforblocks(response) {
     // we discard all found authors if there are too many. That usually means
     // that we are on some sort of overview page or the site embed snippets
     // from other articles making author detection wonky
-    // the threshold is 5 at the moment    
+    // the threshold is 20 at the moment    
+    // that sounds high but since it's mainly about one page it should be OK
     var authorfound = false;
-    if(page_authors.length<=5){
+    if(page_authors.length<=20){
         tmpauthors = [];
         for (var i = 0, blocks = blockedauthors.length; i < blocks; i++) {
             for (var j = 0, pauthors = page_authors.length; j < pauthors; j++) {
