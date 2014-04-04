@@ -188,7 +188,7 @@ function show_overlay(issues) {
     
 
     // add the button to close the area
-    overlay.innerHTML += "<button onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
+    overlay.innerHTML += "<br><button class=\"yskbbutton\" onclick=\"javascript:document.getElementById('youshouldknowbetteroverlay').parentNode.removeChild(document.getElementById('youshouldknowbetteroverlay'));\">"+chrome.i18n.getMessage("overlayConfirmationButton")+"</button>";
     document.body.appendChild(overlay);
 
 }

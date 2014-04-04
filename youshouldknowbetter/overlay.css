@@ -9,15 +9,57 @@
     color: white;
     font-size: 4em;
     text-align: center;
-    padding-top: 80px;
     line-height: 100%;
     font-family: sans-serif, sans;
+    margin: 0;
+	padding: 0;
+    padding-top: 80px;
+	border: 0;
+	vertical-align: baseline;
 }
 
 .yskboverlay button{
     font-size: 22px;
     padding: 2px 6px 3px;
     border: 2px outset buttonface;
+    float: none;
+    display: inline;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+}
+
+.yskbbutton {
+	box-shadow: 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+	border-bottom-right-radius:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	/*font-size:15px; */
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:normal;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.yskbbutton:hover {
+	background-color:#dfdfdf;
+}
+
+.yskbbutton:active {
+	position:relative;
+	top:1px;
 }
 
 .yskboverlay a{
