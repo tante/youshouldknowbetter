@@ -36,9 +36,20 @@ function checkforblocks(response) {
             if(page_authors[j].search(blockedauthors[i].name)>-1){
                 author=blockedauthors[i];
                 author.foundas=page_authors[j];
-                tmpauthors.push(author);
-                authorfound = true;
-                issuefound = true;
+                // we assume that we have a new author
+                // now we check the list of blocked authors to see if we already 
+                // got that one
+                var newauthor = true;
+                for (var k = 0, len = tmpauthors.length; k < len; k++) {
+                    if(tmpauthors[k].name === author.name){
+                        newauthor = false;
+                    }
+                }
+                if(newauthor){
+                    tmpauthors.push(author);
+                    authorfound = true;
+                    issuefound = true;
+                }
             }
         }
     }
