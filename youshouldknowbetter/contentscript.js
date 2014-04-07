@@ -174,7 +174,7 @@ function show_overlay(issues) {
                 displayurlcomment
                     );
     }
-
+    // if we have found problematic authors
     if(issues.authors){
         overlay.innerHTML += getIssueBox(
                 chrome.i18n.getMessage("overlayIssueAuthorQuestion",displayauthor),
@@ -193,6 +193,8 @@ function show_overlay(issues) {
 
 }
 
+
+// generate a box with detail infos (such as blocked authors)
 function getIssueBox(question,commentheading,comment){
     templatehead = '<div class="yskboverlayissuesbox"> \
     <div class="yskboverlayquestion">$question</div>';
@@ -219,4 +221,3 @@ function keypress_handler(e) {
 }
 // register the handler 
 document.addEventListener('keyup', keypress_handler, false);
-
