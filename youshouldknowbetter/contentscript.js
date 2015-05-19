@@ -29,7 +29,7 @@ function checkforblocks(response) {
     // check for author
     blockedauthors = response.youshouldknowbetter.authors;
     page_authors = find_authors();
-    console.log(page_authors);
+    // console.log(page_authors);
     // we discard all found authors if there are too many. That usually means
     // that we are on some sort of overview page or the site embed snippets
     // from other articles making author detection wonky
@@ -62,7 +62,7 @@ function checkforblocks(response) {
         }
     }
     else {
-        console.log("Found too many authors to be sure ("+page_authors.length+")");
+        // console.log("Found too many authors to be sure ("+page_authors.length+")");
     }
     if (authorfound) {
         issues.authors=tmpauthors;
